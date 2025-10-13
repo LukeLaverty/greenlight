@@ -1,21 +1,48 @@
-//
-//  ContentView.swift
-//  Greenlight
-//
-//  Created by Luke Laverty on 13/10/2025.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @State private var green = generateGreen()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            green.ignoresSafeArea()
+
+            VStack(spacing: 40) {
+                Text("Greenlight?")
+                    .font(.title)
+                    .foregroundColor(.white)
+
+                HStack(spacing: 50) {
+                    Button(action: updateGreen) {
+                        Image(systemName: "hand.thumbsdown.fill")
+                            .font(.system(size: 40))
+                            .foregroundColor(.white)
+                    }
+
+                    Button(action: updateGreen) {
+                        Image(systemName: "hand.thumbsup.fill")
+                            .font(.system(size: 40))
+                            .foregroundColor(.white)
+                    }
+                }
+                
+                Text(green.description.prefix(7))
+                    .font(.title)
+                    .foregroundColor(.white)
+            }
         }
-        .padding()
+    }
+
+    static func generateGreen() -> Color {
+        return Color(
+            hue: Double.random(in: 0.3...0.4),
+            saturation: Double.random(in: 0.4...1.0),
+            brightness: Double.random(in: 0.5...1.0)
+        )
+    }
+    
+    func updateGreen() -> Void {
+        green = ContentView.generateGreen()
     }
 }
 
