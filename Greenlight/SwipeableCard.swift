@@ -31,6 +31,7 @@ struct SwipeableCard: View {
                 }
                 .onEnded { _ in
                     if abs(offset.width) > geometry.size.width / 2 {
+                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
                         withAnimation(.easeIn(duration: 0.5)) {
                             offset = CGSize(width: offset.width > 0 ? 1000 : -1000, height: 0)
                         }
