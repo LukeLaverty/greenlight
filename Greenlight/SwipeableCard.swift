@@ -31,19 +31,16 @@ struct SwipeableCard: View {
                 }
                 .onEnded { _ in
                     if abs(offset.width) > geometry.size.width / 2 {
-                        updateGreen()
-                        // TODO: Hide card and show new card underneath instead.
-                        withAnimation {
-                            offset = .zero
+                        withAnimation(.easeIn(duration: 0.5)) {
+                            offset = CGSize(width: offset.width > 0 ? 1000 : -1000, height: 0)
                         }
                     } else {
-                        withAnimation {
+                        withAnimation(.spring()) {
                             offset = .zero
                         }
                     }
                 }
             )
-            .animation(.spring(), value: offset)
         }
     }
     
@@ -53,10 +50,6 @@ struct SwipeableCard: View {
             saturation: Double.random(in: 0.4...1.0),
             brightness: Double.random(in: 0.5...1.0)
         )
-    }
-    
-    func updateGreen() -> Void {
-        green = SwipeableCard.generateGreen()
     }
 }
 

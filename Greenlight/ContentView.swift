@@ -10,7 +10,18 @@ struct ContentView: View {
                     .font(.largeTitle.bold().italic())
                     .foregroundColor(Color.white)
             
-                SwipeableCard()
+                ZStack {
+                    SwipeableCard()
+                    SwipeableCard()
+                    SwipeableCard()
+                    SwipeableCard()
+                    SwipeableCard()
+                    SwipeableCard()
+                    SwipeableCard()
+                    SwipeableCard()
+                    SwipeableCard()
+                    SwipeableCard()
+                }
             }
         }
     }
