@@ -6,7 +6,7 @@ struct ContentView: View {
             ZStack {
                 Color.gray.ignoresSafeArea()
                 
-                VStack(spacing: 20) {
+                VStack(spacing: 0) {
                     Text("Greenlight?")
                         .font(.largeTitle.bold().italic())
                         .foregroundColor(Color.white)
@@ -23,8 +23,8 @@ struct ContentView: View {
                         SwipeableCard()
                         SwipeableCard()
                     }
+                    .padding(20)
                 }
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
             }
             .tabItem {
                 Label("Home", systemImage: "arrowshape.left.arrowshape.right")
