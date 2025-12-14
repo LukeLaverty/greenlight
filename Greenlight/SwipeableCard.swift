@@ -6,7 +6,6 @@ struct SwipeableCard: View {
     var body: some View {
         GeometryReader { geometry in
             Card()
-                .frame(width: geometry.size.width, height: geometry.size.height)
                 .offset(x: offset.width, y: 0)
                 .rotationEffect(.degrees(Double(offset.width / 50)))
                 .gesture(DragGesture()

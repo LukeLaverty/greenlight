@@ -1,24 +1,28 @@
 import SwiftUI
 
 struct Card: View {
+    var compact: Bool = false
     @State private var green: Color = generateGreen()
 
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                RoundedRectangle(cornerRadius: 30)
-                    .fill(Color.white)
+        ZStack {
+            RoundedRectangle(cornerRadius: 30)
+                .fill(Color.white)
+            
+            VStack(spacing: 0) {
+                let inner = RoundedRectangle(cornerRadius: 20)
+                    .fill(green)
+                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10))
                 
-                VStack(spacing: 0) {
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(green)
-                        .padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10))
-                        
-                    Text(green.description.prefix(7))
-                        .font(.title)
-                        .padding(5)
+                if (compact) {
+                    inner.aspectRatio(1/1, contentMode: .fit)
+                } else {
+                    inner
                 }
                 
+                Text(green.description.prefix(7))
+                    .font(.title)
+                    .padding(5)
             }
         }
     }
@@ -35,6 +39,6 @@ struct Card: View {
 #Preview {
     ZStack {
         Color.gray.ignoresSafeArea()
-        Card().padding(20)
+        Card(compact: true).padding(20)
     }
 }

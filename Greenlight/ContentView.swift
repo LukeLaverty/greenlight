@@ -31,7 +31,25 @@ struct ContentView: View {
             }
             
             ZStack {
+                Color.gray.ignoresSafeArea()
                 
+                ScrollView {
+                    LazyVGrid(
+                        columns: [GridItem(.flexible(), spacing: 10), GridItem(.flexible(), spacing: 10)],
+                        spacing: 10
+                    ) {
+                        Card(compact: true)
+                        Card(compact: true)
+                        Card(compact: true)
+                        Card(compact: true)
+                        Card(compact: true)
+                        Card(compact: true)
+                        Card(compact: true)
+                        Card(compact: true)
+                        Card(compact: true)
+                        Card(compact: true)
+                    }
+                }.padding(.horizontal, 20)
             }.tabItem {
                 Label("Liked", systemImage: "heart")
             }
