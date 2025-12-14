@@ -1,6 +1,7 @@
 import SwiftUI
 
-struct Card: View {
+struct Card: View, Identifiable {
+    let id = UUID()
     var compact: Bool = false
     @State private var green: Color = generateGreen()
 

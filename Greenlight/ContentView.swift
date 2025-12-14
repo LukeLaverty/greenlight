@@ -11,19 +11,7 @@ struct ContentView: View {
                         .font(.largeTitle.bold().italic())
                         .foregroundColor(Color.white)
                     
-                    ZStack {
-                        SwipeableCard()
-                        SwipeableCard()
-                        SwipeableCard()
-                        SwipeableCard()
-                        SwipeableCard()
-                        SwipeableCard()
-                        SwipeableCard()
-                        SwipeableCard()
-                        SwipeableCard()
-                        SwipeableCard()
-                    }
-                    .padding(20)
+                    SwipeableCard().padding(20)
                 }
             }
             .tabItem {
